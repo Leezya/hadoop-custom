@@ -36,11 +36,11 @@ services:
     networks:
       - hadoop
 
-  worker1:
+  worker:
     build: .
     image: apache/hadoop:3.5.0
-    container_name: hadoop-worker1
-    hostname: worker1
+    container_name: hadoop-worker
+    hostname: worker
     user: root
     depends_on:
       - master
@@ -60,43 +60,12 @@ services:
 
     ports:
       - "9864:9864"
+      - "9866:9866"
+      - "9867:9867"
       - "8042:8042"
 
     volumes:
-      - worker1_data:/tmp/hadoop-root/dfs/data
-      - ./config:/opt/hadoop/etc/hadoop/custom-config:ro
-
-    networks:
-      - hadoop
-
-  worker2:
-    build: .
-    image: apache/hadoop:3.5.0
-    container_name: hadoop-worker2
-    hostname: worker2
-    user: root
-    depends_on:
-      - master
-
-    environment:
-      HDFS_DATANODE_USER: root
-      YARN_NODEMANAGER_USER: root
-
-    command: >
-      bash -c "
-        mkdir -p /tmp/hadoop-root/dfs/data &&
-        chmod 755 /tmp/hadoop-root/dfs/data &&
-        hdfs datanode &
-        yarn nodemanager &
-        tail -f /dev/null
-      "
-
-    ports:
-      - "9865:9864"
-      - "8043:8042"
-
-    volumes:
-      - worker2_data:/tmp/hadoop-root/dfs/data
+      - worker_data:/tmp/hadoop-root/dfs/data
       - ./config:/opt/hadoop/etc/hadoop/custom-config:ro
 
     networks:
@@ -104,8 +73,7 @@ services:
 
 volumes:
   namenode_data:
-  worker1_data:
-  worker2_data:
+  worker_data:
 
 networks:
   hadoop:

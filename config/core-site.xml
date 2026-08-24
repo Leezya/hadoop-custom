@@ -5,7 +5,7 @@
 
     <property>
         <name>fs.defaultFS</name>
-        <value>hdfs://master:8020</value>
+        <value>hdfs://192.168.80.227:8020</value>
     </property>
 
 </configuration>

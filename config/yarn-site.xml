@@ -5,7 +5,7 @@
 
     <property>
         <name>yarn.resourcemanager.hostname</name>
-        <value>master</value>
+        <value>192.168.1.10</value>
     </property>
 
     <property>
