@@ -33,7 +33,10 @@ services:
 
     volumes:
       - namenode_data:/tmp/hadoop-root/dfs/name
-      - ./config:/opt/hadoop/etc/hadoop/custom-config:ro
+      - ./config/core-site.xml:/opt/hadoop/etc/hadoop/core-site.xml:ro
+      - ./config/hdfs-site.xml:/opt/hadoop/etc/hadoop/hdfs-site.xml:ro
+      - ./config/yarn-site.xml:/opt/hadoop/etc/hadoop/yarn-site.xml:ro
+      - ./config/mapred-site.xml:/opt/hadoop/etc/hadoop/mapred-site.xml:ro
 
     networks:
       - hadoop
@@ -67,7 +70,10 @@ services:
 
     volumes:
       - worker_data:/tmp/hadoop-root/dfs/data
-      - ./config:/opt/hadoop/etc/hadoop/custom-config:ro
+      - ./config/core-site.xml:/opt/hadoop/etc/hadoop/core-site.xml:ro
+      - ./config/hdfs-site.xml:/opt/hadoop/etc/hadoop/hdfs-site.xml:ro
+      - ./config/yarn-site.xml:/opt/hadoop/etc/hadoop/yarn-site.xml:ro
+      - ./config/mapred-site.xml:/opt/hadoop/etc/hadoop/mapred-site.xml:ro
 
     networks:
       - hadoop
