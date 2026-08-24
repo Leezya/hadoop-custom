@@ -36,14 +36,13 @@ services:
     networks:
       - hadoop
 
+
   worker:
     build: .
     image: apache/hadoop:3.5.0
     container_name: hadoop-worker
     hostname: worker
     user: root
-    depends_on:
-      - master
 
     environment:
       HDFS_DATANODE_USER: root
@@ -71,9 +70,11 @@ services:
     networks:
       - hadoop
 
+
 volumes:
   namenode_data:
   worker_data:
+
 
 networks:
   hadoop:
