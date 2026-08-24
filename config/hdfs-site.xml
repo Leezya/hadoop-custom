@@ -4,18 +4,28 @@
 <configuration>
 
     <property>
-        <name>dfs.replication</name>
-        <value>1</value>
+        <name>dfs.namenode.rpc-address</name>
+        <value>192.168.80.227:8020</value>
     </property>
 
     <property>
-        <name>dfs.namenode.name.dir</name>
-        <value>file:///tmp/hadoop-root/dfs/name</value>
+        <name>dfs.namenode.http-address</name>
+        <value>0.0.0.0:9870</value>
     </property>
 
     <property>
         <name>dfs.datanode.data.dir</name>
         <value>file:///tmp/hadoop-root/dfs/data</value>
+    </property>
+
+    <property>
+        <name>dfs.datanode.hostname</name>
+        <value>192.168.80.156</value>
+    </property>
+
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
     </property>
 
 </configuration>

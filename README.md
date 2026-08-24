@@ -25,3 +25,7 @@ hadoop-worker2
 
 docker logs hadoop-master
 docker logs hadoop-worker1
+
+
+labsit12@labsit12:~/Documents/hadoop-custom$ nc -zv 192.168.80.227 8020
+Connection to 192.168.80.227 8020 port [tcp/*] succeeded!
